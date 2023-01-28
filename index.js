@@ -26,14 +26,25 @@ app.post("/resize", (req, res) => {
         if (!req.files || Object.keys(req.files).length === 0) {
             return res.status(400).send("No files were uploaded.");
         }
+        var width = req.body.width;
+        var height = req.body.height;
 
         var uploadedFile = req.files.file;
         var uploadPath = path.join(__dirname, "Uploads", uploadedFile.name);
+        var resultsPath = path.join(__dirname, "Results", uploadedFile.name);
         uploadedFile.mv(uploadPath, (err) => {
             if (err) {
-                console.log(err.message);
-                return res.sendStatus(500);
+                return console.log(err.message);
             }
+
+            sharp(uploadPath).metadata().resize(parseInt(width), parseInt(height)).toFile(resultsPath).then((err, data) => {
+                if (err) {
+                    return console.log(err.message);
+                }
+
+                console.log("Width: " + data.width);
+                console.log("Height: " + data.height);
+            });
 
             res.redirect("/");
         });
