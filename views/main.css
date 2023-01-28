@@ -1,0 +1,115 @@
+/* file input button */
+::-webkit-file-upload-button {
+    background-color: #191919;
+    border: 0;
+    cursor: pointer;
+    color: white;
+    margin-right: 15px;
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    transition: all 0.2s;
+}
+::-webkit-file-upload-button:hover {
+    background-color: #1e1e1e;
+    transition: all 0.2s;
+}
+::-webkit-file-upload-button:active {
+    background-color: #232323;
+    transition: all 0.2s;
+}
+/* body */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #191919;
+    color: white;
+}
+/* background image */
+.backgroundImage {
+    background-image: url("Resources/Background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 41px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    filter: blur(3px);
+}
+/* top bar */
+.topBar {
+    background-color: #191919;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-left: 20px;
+    z-index: 1;
+}
+.topBar h3 {
+    font-weight: 500;
+}
+/* main */
+.main {
+    position: absolute;
+    top: 61px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.main .formContainer {
+    background-color: #0f0f0f;
+    border-radius: 5px;
+    margin: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+}
+.main .formContainer input[type=file] {
+    cursor: pointer;
+    background-color: #191919;
+    border-radius: 5px;
+    border: 0;
+}
+.main .formContainer .textInputs {
+    margin-top: 10px;
+}
+.main .formContainer .textInputs p {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: gray;
+}
+.main .formContainer input[type=text] {
+    background-color: transparent;
+    border: 0.5px solid gray;
+    padding: 10px;
+    border-radius: 5px;
+    width: 90%;
+    color: white;
+}
+.main .formContainer input[type=submit] {
+    background-color: #191919;
+    border: 0;
+    margin-top: 10px;
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.2s;
+}
+.main .formContainer input[type=submit]:hover {
+    background-color: #1e1e1e;
+    transition: all 0.2s;
+}
+.main .formContainer input[type=submit]:active {
+    background-color: #232323;
+    transition: all 0.2s;
+}
+.main .formContainer input[type=submit]:disabled {
+    background-color: #dc3545;
+    transition: all 0.2s;
+}

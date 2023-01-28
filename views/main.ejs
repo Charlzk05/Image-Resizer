@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Charlzk05 - Image Resizer</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    <div class="backgroundImage"></div>
+    <div class="topBar">
+        <h3>Main</h3>
+    </div>
+    <div class="main">
+        <div class="formContainer">
+            <form action="/resize" method="post" enctype="multipart/form-data">
+                <input name="file" type="file" accept=".png,.jpeg,.gif,.webp,.avif">
+                <div class="textInputs">
+                    <p>Width</p>
+                    <input type="text" name="width">
+                    <p style="margin-top: 10px;">Height</p>
+                    <input type="text" name="height">
+                </div>
+                <input type="submit" value="Resize" id="submitButton" disabled>
+            </form>
+        </div>
+    </div>
+
+    <script src='main.js'></script>
+</body>
+</html>
