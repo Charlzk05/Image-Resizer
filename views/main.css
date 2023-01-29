@@ -81,6 +81,9 @@ body {
     font-size: 14px;
     color: gray;
 }
+.main .formContainer .textInputs span {
+    font-size: 12px;
+}
 .main .formContainer input[type=text] {
     background-color: transparent;
     border: 0.5px solid gray;

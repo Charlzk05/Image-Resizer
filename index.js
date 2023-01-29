@@ -3,6 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const sharp = require("sharp");
+const fs = require("fs");
 
 const app = express();
 const port = 3000;
@@ -44,6 +45,17 @@ app.post("/resize", (req, res) => {
                     return console.log(err.message);
                 }
                 res.download(resultsPath);
+
+                fs.unlink(uploadPath, (err) => {
+                    if (err) {
+                        return console.log(err.message);
+                    }
+                    fs.unlink(resultsPath, (err) => {
+                        if (err) {
+                            return console.log(err.message);
+                        }
+                    });
+                });
             });
         });
     } catch (err) {
