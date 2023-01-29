@@ -113,3 +113,6 @@ body {
     background-color: #dc3545;
     transition: all 0.2s;
 }
+.main .about h2 {
+    font-weight: 500;
+}

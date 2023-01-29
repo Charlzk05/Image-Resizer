@@ -3,7 +3,6 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const sharp = require("sharp");
-const imageSize = require("image-size");
 
 const app = express();
 const port = 3000;
@@ -27,28 +26,25 @@ app.post("/resize", (req, res) => {
         if (!req.files || Object.keys(req.files).length === 0) {
             return res.status(400).send("No files were uploaded.");
         }
+
         const width = req.body.width;
         const height = req.body.height;
 
         const uploadedFile = req.files.file;
         const uploadPath = path.join(__dirname, "Uploads", uploadedFile.name);
         const resultsPath = path.join(__dirname, "Results", uploadedFile.name);
+
         uploadedFile.mv(uploadPath, (err) => {
             if (err) {
                 return console.log(err.message);
             }
-
-            sharp(uploadPath).metadata().resize(parseInt(width), parseInt(height)).toFile(resultsPath).then((err, data) => {
+            
+            sharp(uploadPath).resize(parseInt(width), parseInt(height)).toFile(resultsPath, (err) => {
                 if (err) {
                     return console.log(err.message);
                 }
-
-                console.log("Width: " + data.width);
-                console.log("Height: " + data.height);
+                res.download(resultsPath);
             });
-            
-
-            res.redirect("/");
         });
     } catch (err) {
         console.log(err.message);
